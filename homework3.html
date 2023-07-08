@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework-3</title>
+    <style>
+      #itemstyle {
+        margin: 1%;
+        padding: 1%;
+        border: 1px solid red;
+        width: 20%;
+        float: left;
+        text-align: center;
+        color: grey;
+        font-size: 18px;
+      }
+      button {
+        color: white;
+        background-color: grey;
+        padding: 10px 10px;
+        margin: 3px;
+        border-radius: 5px;
+        box-shadow: 0px 2px, 1px red;
+        border: none;
+        outline: none;
+        font-size: 17px;
+      }
+      input {
+        color: black;
+        padding: 10px;
+        font-size: 17px;
+        border: none;
+        outline: none;
+        box-shadow: 1px 2px 3px red;
+        margin: 4px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body onload="getitems()">
+    <h3>Homework-3 example</h3>
+    <div style="text-align: center">
+
+      <input type="text" placeholder="please enter something" id="pickname" />
+      <button onclick="Save()">Save items</button>
+      <br/><br/>
+      <input type="search" placeholder="search the items" onchange="searchitems(this.value)"/>
+
+      <h3 id="message"></h3>
+      <h4 id="lengths"></h4>
+      <div id="results"></div>
+      <script>
+          var items = [
+            "apple",
+            "mango",
+            "litchi",
+            "banana",
+            "potato",
+            "orange",
+          ];
+        function getitems() {
+        
+          var data = "";
+          items.map((items, index) => {
+            data = data + "<div id='itemstyle'>" + (index+1)+"-"+" "+items +" "+"("+items.length+")"+"<br/><br/>"+"<button onclick='deletes("+index+")'>Delete</button>"+"</div>";
+          });
+          // alert(data);
+          document.getElementById("results").innerHTML = data;
+          document.getElementById("lengths").innerHTML = "Total items:-"+" "+items.length;
+
+        }
+
+        const Save=()=>{
+            // alert("ok");
+            var newitems=document.getElementById("pickname").value;
+            // alert(newitems);
+            items.push(newitems);
+            getitems();
+            document.getElementById("pickname").value=" ";
+            document.getElementById("pickname").focus();
+
+            document.getElementById("message").innerHTML=newitems+" "+"item saved successfully";
+        }
+
+        const deletes=(itemindex,name)=>{
+            // alert("ok");
+            items.splice(itemindex,1);
+            getitems();
+
+
+        }
+        // const searchitems=(e)=>{
+        //     // alert("kjfd");
+        //     items.includes(e=>{e.toLowerCase().toUpperCase()});
+
+        // }
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <!-- <link rel="stylesheet" href="style.css"/> -->
+</head>
+<style>
+    h2 {
+        text-align: center;
+        margin: 10px auto;
+        background-color: #e3f9ff;
+
+    }
+
+    * {
+        margin: 0px;
+        padding: 0px;
+        font-family: verdana;
+        box-sizing: border-box;
+
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        background-color: #e3f9ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    form .displays {
+        display: flex;
+        justify-content: flex-end;
+        margin: 20px 0px;
+
+    }
+
+    form .displays input {
+        text-align: right;
+        flex: 1;
+        box-shadow: -1px 1px 1px 1px grey !important;
+        font-size: 40px !important;
+        padding-right: 4px;
+    }
+
+    .calculator {
+        border-radius: 10px;
+        padding: 20px;
+        background-color: #3a4452;
+    }
+
+    .calculator form input {
+        border: 0px;
+        width: 60px;
+        outline: 0px;
+        height: 60px;
+        border-radius: 10px;
+        color: #fff;
+        margin: 5px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: transparent;
+        box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .calculator form input.equals {
+        width: 130px;
+    }
+
+    .operators {
+        background-color: grey !important;
+        opacity: 0.5;
+
+    }
+</style>
+
+<body>
+    <h2>Calculator example in javascript</h2>
+    <div class="container">
+        <div class="calculator">
+            <form>
+                <div class="displays">
+                    <input type="text" name="display" />
+                </div>
+                <div>
+                    <input type="button" value="AC" onclick="display.value =''" class="operators" />
+                    <input type="button" value="DE" onclick="display.value=display.value.toString().slice(0,-1)"
+                        class="operators" />
+                    <input type="button" value="." onclick="display.value +='.'" / class="operators">
+                    <input type="button" value="/" onclick="display.value +='/'" class="operators" />
+                </div>
+                <div>
+                    <input type="button" value="7" onclick="display.value +='7'" />
+                    <input type="button" value="8" onclick="display.value +='8'" />
+                    <input type="button" value="9" onclick="display.value +='9'" />
+                    <input type="button" value="*" onclick="display.value +='*'" class="operators" />
+                </div>
+                <div>
+                    <input type="button" value="4" onclick="display.value +='4'" />
+                    <input type="button" value="5" onclick="display.value +='5'" />
+                    <input type="button" value="6" onclick="display.value +='6'" />
+                    <input type="button" value="-" onclick="display.value +='-'" class="operators" />
+                </div>
+
+                <div>
+                    <input type="button" value="1" onclick="display.value +='1'" />
+                    <input type="button" value="2" onclick="display.value +='2'" />
+                    <input type="button" value="3" onclick="display.value +='3'" />
+                    <input type="button" value="+" onclick="display.value +='+'" class="operators" />
+                </div>
+
+                <div>
+                    <input type="button" value="00" onclick="display.value +='00'" />
+                    <input type="button" value="0" onclick="display.value +='0'" />
+                    <input type="button" value="=" class="equals" onclick="display.value=eval(display.value)"
+                        class="operators" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

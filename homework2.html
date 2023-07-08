@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>homework-2</title>
+    <style>
+        #styles{
+            text-align: center;
+        }
+        img{
+            border: 1px solid green;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 1px grey;
+        }
+        img:hover{
+            cursor: pointer;
+
+        }
+    </style>
+  </head>
+  <body>
+    <div id="styles">
+    <h2>Javascript homework-2</h2>
+    <img src="images/apple.jpeg" height="300px" width="300px" id="results"/>
+    <br />
+    <br />
+    <img
+      src="images/apple.jpeg"
+      height="100px"
+      width="100px"
+      onclick="one('images/apple.jpeg')"
+    />
+    <img
+      src="images/mango.jpeg"
+      height="100px"
+      width="100px"
+      onclick="one('images/mango.jpeg')"
+    />
+    <img
+      src="images/litchi.jpeg"
+      height="100px"
+      width="100px"
+      onclick="one('images/litchi.jpeg')"
+    />
+    <img
+      src="images/orange.jpeg"
+      height="100px"
+      width="100px"
+      onclick="one('images/orange.jpeg')"
+    />
+    <img
+      src="images/potato.jpeg"
+      height="100px"
+      width="100px"
+      onclick="one('images/potato.jpeg')"
+    />
+
+    <script>
+      const one = (picknames) => {
+        // alert(picknames);
+        document.getElementById("results").src=picknames;
+      }
+    </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counterdown</title>
+    <link rel="stylesheet" href="counterdown.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300&family=Lato:ital,wght@1,300&family=Lora:ital,wght@1,500&family=Poppins:ital,wght@0,200;0,300;1,200&display=swap"
+        rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- <h2 align="center">Counter down example in Javascript</h2> -->
+    <div class="main">
+        <div class="overlay">
+            <div class="backgrounds">
+                <div class="title" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="4000">Sanvi Birthday is coming Soon ? &#128517;</div>
+                <div class="title" id="end_date" data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"></div>
+                <div class="col" data-aos="zoom-in">
+                    <div>
+                        <input type="text" readonly value="0">
+                        <br />
+                        <label for="">Days</label>
+                    </div>
+                    <div>
+                        <input type="text" readonly value="0">
+                        <br />
+                        <label for="">Hours</label>
+                    </div>
+                    <div>
+                        <input type="text" readonly value="0">
+                        <br />
+                        <label for="">Minutes</label>
+                    </div>
+                    <div>
+                        <input type="text" readonly value="0">
+                        <br />
+                        <label for="">Seconds</label>
+                    </div>
+
+                </div>
+                <h2 id='congratulations'></h2>
+
+                <!-- <h3>Created By:- Chandan Vidharthi</h3> -->
+
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="counterdown.js"></script>
+</body>
+
+</html>

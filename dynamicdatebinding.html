@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic data binding</title>
+    <style>
+      button {
+        color: white;
+        background-color: grey;
+        padding: 10px 10px;
+        margin: 3px;
+        border-radius: 5px;
+        box-shadow: 0px 2px, 1px red;
+        border: none;
+        outline: none;
+        font-size: 17px;
+      }
+    </style>
+  </head>
+  <body onload="getbooks()">
+    <div style="text-align: center">
+      <h2>Dynamic data Binding example in javascript</h2>
+      <p>
+        Enter new book name:- <input type="text" id="books" />
+        <br />
+        <button onclick="savebook()">Save Book</button>
+      </p>
+      
+      <h4 id="lengths">Total Books:- </h4>
+      <p id="messages"></p>
+      <table
+        align="center"
+        cellpadding="10px"
+        cellspacing="4"
+        width="40%"
+        border="5px"
+      >
+        <thead bgcolor="orange">
+          <tr>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="container"></tbody>
+        <tfoot bgcolor="orange">
+          <tr>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Action</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <script>
+      var booklists = [
+        "html",
+        "css",
+        "reactjs",
+        "anjular",
+        "bootstrap",
+        "javascript",
+      ];
+
+      const getbooks = () => {
+        // alert("ok")
+        var data = "";
+        booklists.map((bookinfo, index) => {
+          data = data + "<tr align='center'>";
+          data = data + "<td>" + index + "</td>";
+          data = data + "<td>" + bookinfo + "</td>";
+          data =
+            data +
+            "<td><button onclick='deletes(" +
+            index +
+            ")'>Delete</button></td>";
+
+          data = data + "</tr align='center'>";
+        });
+        // alert(data);
+        document.getElementById("container").innerHTML = data;
+        document.getElementById("lengths").innerHTML="Total books:-"+" "+booklists.length;
+
+
+      };
+
+      const deletes = (bookindex) => {
+        // alert(bookindex);
+        booklists.splice(bookindex, 1);
+        getbooks();
+        document.getElementById("lengths").innerHTML="Delete sucessfully";
+
+      };
+
+      const savebook = () => {
+        // alert("ok");
+        var newbooks = document.getElementById("books").value;
+
+        // var newbook="titele";
+        booklists.push(newbooks);
+        getbooks();
+        document.getElementById("messages").innerText=newbooks+" "+"Added successfully";
+
+        document.getElementById("books").value = "";
+        document.getElementById("books").focus();
+
+
+      };
+    </script>
+  </body>
+</html>

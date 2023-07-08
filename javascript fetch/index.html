@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Index</title>
+    <style>
+      button {
+        color: white;
+        background-color: grey;
+        padding: 10px 10px;
+        margin: 3px;
+        border-radius: 5px;
+        box-shadow: 0px 2px, 1px red;
+        border: none;
+        outline: none;
+        font-size: 17px;
+      }
+      .my_comments {
+        width: 20%;
+        margin: 1%;
+        padding: 1%;
+        float: left;
+        min-height: 450px;
+        box-shadow: 0px 1px 2px grey;
+        border-radius: 7px;
+        /* text-align: center; */
+      }
+      img {
+        box-shadow: 0px 1px 0px orange;
+        border-radius: 10px;
+        transition: transform 0.2s; /* Animation */
+      }
+      img:hover {
+        background-color: grey;
+        opacity: 0.9;
+        /* transform: rotate(20deg); */
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body onload="gethome()">
+    <h2>
+      fethcing the data,promise and then function exampel in the javascript
+    </h2>
+    <div>
+      <button onclick="gethome()">Home</button>
+      <button onclick="getproduct()">Products</button>
+      <button onclick="getcomments()">getcomments</button>
+      <button onclick="getcars()">Get cars</button>
+      <button onclick="getjewellery()">Get jewelery</button>
+
+      <div id="container" align="center"></div>
+    </div>
+    <script>
+      
+      const gethome = () => {
+        // alert("ok");
+        fetch("home.html")
+          .then((response) => response.text())
+          .then((originaldata) => {
+            // alert(originaldata);
+            document.getElementById("container").innerHTML = originaldata;
+          });
+      };
+
+      const getproduct = () => {
+        fetch("product.html")
+          .then((response) => response.text())
+          .then((resulstsdata) => {
+            document.getElementById("container").innerHTML = resulstsdata;
+          });
+      };
+
+      // getcomments example:
+
+      const getcomments = () => {
+        document.getElementById("container").innerHTML =
+          "please wait loading .....";
+        var comments = "<h3>Get comments lists</h3>";
+
+        fetch("https://jsonplaceholder.typicode.com/comments")
+          .then((response) => response.json())
+          .then((commentsArray) => {
+            // alert(commentsArray.length);
+            commentsArray.map((commentsinfo, index) => {
+              comments += "<div class='my_comments'>";
+              comments += "<h3>" + commentsinfo.name + "</h3>";
+              comments += "<h3>" + commentsinfo.body + "</h3>";
+
+              comments += "</div>";
+            });
+            document.getElementById("container").innerHTML = comments;
+          });
+      };
+
+      // get cars example
+
+      const getcars = () => {
+        var cardata = "";
+
+        fetch("http://www.firstenquiry.com/api/car.php")
+          .then((carrespons) => carrespons.json())
+          .then((carlistarray) => {
+            // alert(carlistarray.length);
+            carlistarray.map((carinfo, index) => {
+              var picurl =
+                "http://www.firstenquiry.com/api/img/" + carinfo.image;
+
+              cardata += "<div class='my_comments'>";
+              cardata += "<h4>Model:-" + carinfo.model + "</h4>";
+              cardata += "<p>price:-" + carinfo.price + "</p>";
+              cardata += "<p>Version:-" + carinfo.version + "</p>";
+              cardata += "<p>FuelType:-" + carinfo.fuelType + "</p>";
+              cardata +=
+                "<img src='" + picurl + "' height='120px' width='230px'/>";
+
+              cardata += "</div>";
+            });
+
+            document.getElementById("container").innerHTML = cardata;
+          });
+      };
+
+      const getjewellery = () => {
+        document.getElementById("container").innerHTML =
+          "<div class='spinner-border' role='status'>";
+
+        var jewelrydata = "";
+        fetch("https://fakestoreapi.com/products/category/jewelery")
+          .then((getresponse) => getresponse.json())
+          .then((jeweleryArray) => {
+            // alert(jeweleryArray.length);
+            jeweleryArray.map((jewelryinfo, index) => {
+              // console.log(jewelryimg);
+
+              jewelrydata = jewelrydata + "<div class='my_comments'>";
+              jewelrydata += "<p>" + jewelryinfo.id + "</p>";
+              jewelrydata += "<p>" + jewelryinfo.title + "</p>";
+              jewelrydata += "<p>" + jewelryinfo.price + "</p>";
+              jewelrydata += "<p>" + jewelryinfo.description + "</p>";
+              jewelrydata += "<p>" + jewelryinfo.category + "</p>";
+              jewelrydata += "<p>" + jewelryinfo.rating.rate + "</p>";
+              jewelrydata += "<p>" + jewelryinfo.rating.count + "</p>";
+              jewelrydata +=
+                "<img src='" +
+                jewelryinfo.image +
+                "' height='120px' width='120px'/>";
+
+              jewelrydata = jewelrydata + "</div>";
+            });
+            // console.log(jewelrydata);
+            document.getElementById("container").innerHTML = jewelrydata;
+          });
+      };
+    </script>
+  </body>
+</html>
