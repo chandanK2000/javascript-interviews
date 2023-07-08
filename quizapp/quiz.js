@@ -23,6 +23,14 @@ const questions = [
         'c': "hyper text markup language",
         'd': "jason object notaion'",
         'correct': 'b'
+    },
+        {
+        'que': "what does html stands for",
+        'a': "none of these options",
+        'b': "cascading style sheets",
+        'c': "hyper text markup language",
+        'd': "jason object notaion'",
+        'correct': 'b'
     }
 ]
 
